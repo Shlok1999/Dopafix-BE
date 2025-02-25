@@ -55,7 +55,7 @@ const authMiddleware = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token,"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");
+        const decoded = jwt.verify(token,process.env.JWT_SECRET); // Verify token
         req.user = decoded; // Store decoded user info in request
         next();
     } catch (error) {
